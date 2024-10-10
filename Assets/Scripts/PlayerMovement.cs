@@ -20,6 +20,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector2.down, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")&& transform.position.y - hit.transform.position.y < 0.5f)
+            {
+                grounded = true;
+            }
+        }
+        
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity += Time.deltaTime * force * Vector2.right;
@@ -30,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.velocity += Time.deltaTime * force * Vector2.up;
+            rb.velocity += Time.deltaTime * force * 2 * Vector2.up;
         }
     }
 }

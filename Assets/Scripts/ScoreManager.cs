@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI ScoreText;
-    private int currentScore;
+    private int currentScore = 0;
 
     public void Increment()
     {
