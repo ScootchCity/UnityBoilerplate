@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public ScoreManager ScoreManagerRef;
+    private ScoreManager _scoreManager;
     void Start()
     {
-        ScoreManagerRef = FindObjectOfType<ScoreManager>();
+        _scoreManager = FindObjectOfType<ScoreManager>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         var ball = other.gameObject.GetComponent<PlayerMovement>();
 
         if (ball != null)
         {
-            ScoreManagerRef.Increment();
-            Destroy(this.gameObject);
+            _scoreManager.currentScore++;
+            Destroy(gameObject);
         }
     }
 }

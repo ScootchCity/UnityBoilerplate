@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI ScoreText;
-    private int currentScore = 0;
-
-    public void Increment()
+    public TextMeshProUGUI text;
+    public int currentScore = 0;
+    void Update()
     {
-        currentScore++;
-        ScoreText.text = currentScore.ToString();
+        text.text = this.currentScore.ToString();
     }
 }
