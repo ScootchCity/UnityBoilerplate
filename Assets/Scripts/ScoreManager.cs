@@ -10,5 +10,6 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         text.text = this.currentScore.ToString();
+        //test
     }
 }
